@@ -1,6 +1,5 @@
 #pragma once
 #include <random>
-#include <math.h>
 class TempArray {
 public:
 	char PubMat[26][14];
@@ -172,8 +171,27 @@ public:
 	void Rotate_Right() {
 		char Array[6][6];
 		int TempBlock[4][2];
-
-		fdim(Block[0][0], 2);
+		int Xsub = Block[0][0] - 1, Ysub=Block[0][0] - 1;
+		for (unsigned i = 0; i < 4; i++) {
+			Array[Block[i][0] - Xsub][Block[i][1] - Ysub] = '#';
+		}
+		char b[6][6];
+		for (int colofmatrix = 0; colofmatrix < 6; colofmatrix++) {
+			int x = 0;
+			for (int rowofmatrix = 5; rowofmatrix >= 0; rowofmatrix--) {
+				b[colofmatrix][x] = Array[rowofmatrix][colofmatrix];
+				x++;
+			}
+		}
+		int temp = 0;
+		for (unsigned i = 0; i < 6; i++) {
+			for (unsigned j = 0; j < 6; j++) {
+				if (b[i][j] == '#') {					
+					Block[temp][0] = i+Xsub - 3;
+					Block[temp][1] = i + Ysub - 1;
+					temp++;
+				}
+			}
+		}
 	}
 };
-

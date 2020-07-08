@@ -82,6 +82,8 @@ class Game {
 					a.getPos(x1, y1, x2, y2, x3, y3, x4, y4);
 				}
 				break;
+			case 4:
+				a.Rotate_Right();
 		}
 		TmpArray.PubMat[y1][x1] = '/';
 		TmpArray.PubMat[y2][x2] = '/';
