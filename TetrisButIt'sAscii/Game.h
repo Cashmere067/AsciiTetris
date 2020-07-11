@@ -82,8 +82,10 @@ class Game {
 					a.getPos(x1, y1, x2, y2, x3, y3, x4, y4);
 				}
 				break;
+			case 3:
+				a.Rotate_Left(TmpArray);
 			case 4:
-				a.Rotate_Right();
+				a.Rotate_Right(TmpArray);
 		}
 		TmpArray.PubMat[y1][x1] = '/';
 		TmpArray.PubMat[y2][x2] = '/';
@@ -94,7 +96,6 @@ class Game {
 		TmpArray.PubMat[y2][x2] = '#';
 		TmpArray.PubMat[y3][x3] = '#';
 		TmpArray.PubMat[y4][x4] = '#';
-	
 		tetrominoDisplayer();
 	}
 public: 
@@ -111,7 +112,6 @@ public:
 		clear_screen();
 		tetrominoDisplayer();
 		std::thread Threadobj([&] { threadFn(); }); //close thread after user dies.
-		
 		while (1 == 1) {
 			if (GetKeyState(VK_LEFT) & 0x8000) {
 				state = left;				
@@ -131,14 +131,16 @@ public:
 			}
 			else if ((GetKeyState('Z')) & 0x8000) { // Rotate Left
 				state = RLeft;
-				Sleep(56);
+				Sleep(54);
+				
 				ChangePosition(x1, y1, x2, y2, x3, y3, x4, y4, state, a);
 			}
 			else if ((GetKeyState('X')) & 0x8000) { // Rotate Right
 				state = RRight;
-				Sleep(56);
+				Sleep(54);
 				ChangePosition(x1, y1, x2, y2, x3, y3, x4, y4, state, a);
 			}
+			
 		}
 	}
 };
