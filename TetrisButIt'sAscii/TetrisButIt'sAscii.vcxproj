@@ -152,14 +152,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\Class.cpp" />
-    <ClCompile Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\TetrisButIt%27sAscii.cpp" />
-    <ClCompile Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\Tetromino.cpp" />
+    <ClCompile Include="Class.cpp" />
+    <ClCompile Include="TetrisButIt%27sAscii.cpp" />
+    <ClCompile Include="Tetromino.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\TetrisButIt%27sAscii\rlutil.h" />
-    <ClInclude Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\Tetromino.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Tetromino.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\packages.config" />

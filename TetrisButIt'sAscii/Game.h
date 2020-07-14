@@ -83,9 +83,15 @@ class Game {
 				}
 				break;
 			case 3:
-				a.Rotate_Left(TmpArray);
+				if (a.Check_Left(TmpArray) == true) {
+					a.Rotate_Left(TmpArray);
+				}
+				break;
 			case 4:
-				a.Rotate_Right(TmpArray);
+				if (a.Check_Right(TmpArray) == true) {
+					a.Rotate_Right(TmpArray);
+				}
+				break;
 		}
 		TmpArray.PubMat[y1][x1] = '/';
 		TmpArray.PubMat[y2][x2] = '/';
@@ -131,8 +137,7 @@ public:
 			}
 			else if ((GetKeyState('Z')) & 0x8000) { // Rotate Left
 				state = RLeft;
-				Sleep(54);
-				
+				Sleep(54);			
 				ChangePosition(x1, y1, x2, y2, x3, y3, x4, y4, state, a);
 			}
 			else if ((GetKeyState('X')) & 0x8000) { // Rotate Right

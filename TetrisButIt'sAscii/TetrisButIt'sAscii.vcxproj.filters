@@ -15,24 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\TetrisButIt%27sAscii.cpp">
+    <ClCompile Include="Class.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\Class.cpp">
+    <ClCompile Include="TetrisButIt%27sAscii.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\Tetromino.cpp">
+    <ClCompile Include="Tetromino.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\TetrisButIt%27sAscii\rlutil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\TetrisButIt%27sAscii\TetrisButIt%27sAscii\Tetromino.h">
+    <ClInclude Include="Tetromino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

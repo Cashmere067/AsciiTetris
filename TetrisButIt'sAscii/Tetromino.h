@@ -166,7 +166,7 @@ public:
 	void Rotate_Left(TempArray Temp) {
 		char Array[6][6];
 		int TempBlock[4][2];
-		int Xsub = Block[0][0] - 3, Ysub = Block[0][1] - 3;
+		int Xsub = Block[0][0] - 2, Ysub = Block[0][1] - 2;
 		for (unsigned i = 0; i < 4; i++) {
 			Array[Block[i][0] - Xsub][Block[i][1] - Ysub] = '#';
 		}
@@ -190,7 +190,39 @@ public:
 		}
 		Xsub = Block[2][0] - TempBlock[2][0];
 		Ysub = Block[2][1] - TempBlock[2][1];
-		bool CancelCulture = false;
+
+		for (unsigned i = 0; i < 4; i++) {
+		Block[i][0] = TempBlock[i][0] + Xsub;		
+		Block[i][1] = TempBlock[i][1] + Ysub;
+		}
+	}
+	bool Check_Left(TempArray Temp) {
+		char Array[6][6];
+		int TempBlock[4][2];
+		int Xsub = Block[0][0] - 2, Ysub = Block[0][1] - 2;
+		for (unsigned i = 0; i < 4; i++) {
+			Array[Block[i][0] - Xsub][Block[i][1] - Ysub] = '#';
+		}
+		for (int x = 0; x < 3; x++) {
+			for (int y = x; y < 5 - x; y++) {
+				int temp = Array[x][y];
+				Array[x][y] = Array[y][5 - x];
+				Array[y][5 - x] = Array[5 - x][5 - y];
+				Array[5 - x][5 - y] = Array[5 - y][x];
+				Array[5 - y][x] = temp;
+			}
+		}
+		for (unsigned i = 0, temp = 0; i < 6; i++) {
+			for (unsigned j = 0; j < 6; j++) {
+				if (Array[i][j] == '#') {
+					TempBlock[temp][0] = i;
+					TempBlock[temp][1] = j;
+					temp++;
+				}
+			}
+		}
+		Xsub = Block[2][0] - TempBlock[2][0];
+		Ysub = Block[2][1] - TempBlock[2][1];
 		for (unsigned i = 0; i < 4; i++) {
 			int glob = 0;
 			for (unsigned j = 0; j < 4; j++) {
@@ -201,16 +233,57 @@ public:
 				}
 				else if (Temp.PubMat[TempBlock[i][1] + Ysub][TempBlock[i][0] + Xsub] == '/') { glob++; }
 			}
-			if (glob == 0) { CancelCulture = true; }
+			if (glob == 0) { return false; }
 		}
-		if (CancelCulture == false) {
-			for (unsigned i = 0; i < 4; i++) {
-				Block[i][0] = TempBlock[i][0] + Xsub;
-				Block[i][1] = TempBlock[i][1] + Ysub;
-			}
-		}
+		return true;
+
 	}
+
 	void Rotate_Right(TempArray Temp) {
 		for (unsigned i = 0; i < 3; i++) { Rotate_Left(Temp); }
+	}
+	bool Check_Right(TempArray Temp) {
+		char Array[6][6];
+		int TempBlock[4][2];
+		int Xsub = Block[0][0] - 2, Ysub = Block[0][1] - 2;
+		for (unsigned i = 0; i < 4; i++) {
+			Array[Block[i][0] - Xsub][Block[i][1] - Ysub] = '#';
+		}
+		for (int a = 0; a < 3; a++) {
+			for (int x = 0; x < 3; x++) {
+				for (int y = x; y < 5 - x; y++) {
+					int temp = Array[x][y];
+					Array[x][y] = Array[y][5 - x];
+					Array[y][5 - x] = Array[5 - x][5 - y];
+					Array[5 - x][5 - y] = Array[5 - y][x];
+					Array[5 - y][x] = temp;
+				}
+			}
+		}
+		for (unsigned i = 0, temp = 0; i < 6; i++) {
+			for (unsigned j = 0; j < 6; j++) {
+				if (Array[i][j] == '#') {
+					TempBlock[temp][0] = i;
+					TempBlock[temp][1] = j;
+					temp++;
+				}
+			}
+		}
+		Xsub = Block[2][0] - TempBlock[2][0];
+		Ysub = Block[2][1] - TempBlock[2][1];
+		for (unsigned i = 0; i < 4; i++) {
+			int glob = 0;
+			for (unsigned j = 0; j < 4; j++) {
+				if (Temp.PubMat[TempBlock[i][1] + Ysub][TempBlock[i][0] + Xsub] == '#') {
+					if ((Block[j][0] == (TempBlock[i][0] + Xsub) && Block[j][1] == (TempBlock[i][1] + Ysub))) {
+						glob++;
+					}
+				}
+				else if (Temp.PubMat[TempBlock[i][1] + Ysub][TempBlock[i][0] + Xsub] == '/') { glob++; }
+			}
+			if (glob == 0) { return false; }
+		}
+		return true;
+
 	}
 };
