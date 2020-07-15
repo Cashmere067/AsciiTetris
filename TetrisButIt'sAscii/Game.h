@@ -49,7 +49,7 @@ class Game {
 			}
 			int TempVal = BoppedLines.front();
 			for (unsigned potato = 0; potato < BoppedLines.size(); potato++) { for (unsigned Beet = 1; Beet < 11; Beet++) { TmpArray.PubMat[BoppedLines.front()][Beet] = '/'; } BoppedLines.pop_front(); }
-			for (unsigned cactus = TempVal + i; cactus < 22; cactus++) { for (unsigned banana = 1; banana < 11; banana++) { TmpArray.PubMat[int(cactus) - 2][banana] = TmpArray.PubMat[cactus][banana]; } }
+			for (unsigned cactus = TempVal + i; cactus < 22; cactus++) { for (unsigned banana = 1; banana < 11; banana++) { TmpArray.PubMat[int(cactus) - i][banana] = TmpArray.PubMat[cactus][banana]; } }
 			//pseudocodearea below
 			//Get How Many Are Cleared (that would be i)
 			//then shift all the blocks above where those two are missing by how many where down there
@@ -199,12 +199,12 @@ public:
 			}
 			else if ((GetKeyState('Z')) & 0x8000) { // Rotate Left
 				state = RLeft;
-				Sleep(54);
+				Sleep(65);
 				ChangePosition(x1, y1, x2, y2, x3, y3, x4, y4, state, a);
 			}
 			else if ((GetKeyState('X')) & 0x8000) { // Rotate Right
 				state = RRight;
-				Sleep(54);
+				Sleep(65);
 				ChangePosition(x1, y1, x2, y2, x3, y3, x4, y4, state, a);
 			}
 		}
