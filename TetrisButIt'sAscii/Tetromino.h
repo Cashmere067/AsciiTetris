@@ -18,46 +18,46 @@ class Tetromino {
 		case 0: //"longboi"
 			for (int x = 0; x < 4; x++) {
 				Block[x][0] = 4 + x;
-				Block[x][1] = 21;
+				Block[x][1] = 22;
 			}
 			break;
 		case 1: //L piece Left
-			Block[0][0] = 4; Block[0][1] = 22;//High boi
+			Block[0][0] = 4; Block[0][1] = 23;//High boi
 			for (int x = 1; x < 4; x++) {
 				Block[x][0] = 3 + x;
-				Block[x][1] = 21;
+				Block[x][1] = 22;
 			}
 			break;
 		case 2: //L piece Right
-			Block[3][0] = 5; Block[3][1] = 22;//High boi
+			Block[3][0] = 5; Block[3][1] = 23;//High boi
 			for (int x = 0; x < 3; x++) {
 				Block[x][0] = 3 + x;
-				Block[x][1] = 21;
+				Block[x][1] = 22;
 			}
 			break;
 		case 3: // CEWB
-			Block[0][0] = 5; Block[0][1] = 21;
-			Block[1][0] = 5; Block[1][1] = 22;
-			Block[2][0] = 6; Block[2][1] = 21;
-			Block[3][0] = 6; Block[3][1] = 22;
+			Block[0][0] = 5; Block[0][1] = 22;
+			Block[1][0] = 5; Block[1][1] = 23;
+			Block[2][0] = 6; Block[2][1] = 22;
+			Block[3][0] = 6; Block[3][1] = 23;
 			break;
 		case 4: //Squiggly right
-			Block[0][0] = 4; Block[0][1] = 21;
-			Block[1][0] = 5; Block[1][1] = 21;
+			Block[0][0] = 4; Block[0][1] = 22;
+			Block[1][0] = 5; Block[1][1] = 22;
+			Block[2][0] = 5; Block[2][1] = 23;
+			Block[3][0] = 6; Block[3][1] = 23;
+			break;
+		case 5: //Squiggly left
+			Block[0][0] = 4; Block[0][1] = 23;
+			Block[1][0] = 5; Block[1][1] = 23;
 			Block[2][0] = 5; Block[2][1] = 22;
 			Block[3][0] = 6; Block[3][1] = 22;
 			break;
-		case 5: //Squiggly left
+		case 6: //T ass
 			Block[0][0] = 4; Block[0][1] = 22;
 			Block[1][0] = 5; Block[1][1] = 22;
-			Block[2][0] = 5; Block[2][1] = 21;
-			Block[3][0] = 6; Block[3][1] = 21;
-			break;
-		case 6: //T ass
-			Block[0][0] = 4; Block[0][1] = 21;
-			Block[1][0] = 5; Block[1][1] = 21;
-			Block[2][0] = 6; Block[2][1] = 21;
-			Block[3][0] = 5; Block[3][1] = 22;
+			Block[2][0] = 6; Block[2][1] = 22;
+			Block[3][0] = 5; Block[3][1] = 23;
 		}
 	}
 public:

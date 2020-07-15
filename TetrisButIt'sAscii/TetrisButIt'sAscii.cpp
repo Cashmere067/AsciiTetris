@@ -24,7 +24,7 @@ int main() {
 	Game NewGame = Game();
 	NewGame.startgame();
 	//add timer thing
-
+	return 0;
 	//add moving
 }
 
